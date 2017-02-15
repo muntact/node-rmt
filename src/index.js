@@ -11,30 +11,33 @@ module.exports = {
 
 // service tests:
 // var service = require('./service');
-// service.get('http://mangafox.me/manga', console.log);
+// service.get('http://rmt.me/manga', console.log);
 
-// Mangafox exposed API tests:
-var Mangafox = require('./main').default;
-console.log(Object.keys(Mangafox));
+// rmt exposed API tests:
+var rmt = require('./main').default;
+console.log(Object.keys(rmt));
 // var callback = () => {};
 var callback = console.log;
 
 // getDetails - doesn't work.
+// rmt.getDetails('onepunch-man').then(callback); // returns a huge index page.
 
 // getManga - calls CB with list.
-// Mangafox.getManga(callback); // returns a huge index page.
+// rmt.getManga(callback); // returns a huge index page.
 
 // getPages - calls CB with list.
-// Mangafox.getPages('onepunch_man', 1).then(callback); // returns 19.
-//
-// // getImages
-Mangafox.getImages('onepunch_man', 1, callback);
-//
-// //getChapters
-// Mangafox.getChapters('onepunch_man').then(callback);
-//
-// //getPopular
-// Mangafox.getPopular(callback);
-//
+// rmt.getPages('onepunch-man', 0).then(callback); // returns 19.
+
+
+// getImages
+// rmt.getImages('onepunch-man', 0);
+
+//getChapters
+// rmt.getChapters('onepunch-man').then(callback);
+
+// TODO: upto here.
+//getPopular
+// rmt.getPopular(callback);
+
 // //getLatest
-// Mangafox.getLatest(callback);
+// rmt.getLatest(callback);

@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import $ from 'cheerio';
 import got from 'got';
+import request from 'request';
+
 import { stringify } from 'querystring';
 
 export const get = (url, cacheFile = 'false') => {
@@ -22,6 +24,10 @@ export const get = (url, cacheFile = 'false') => {
       .then((response) => response.body)
       .then((body) => $(body));
   }
+};
+
+export const get2 = (url, filename, cacheFile = 'false') => {
+  request(url).pipe(fs.createWriteStream(filename)).on('close', () => { console.log('done'); });
 };
 
 export const post = (url, original_body, callback) => {
