@@ -1,0 +1,47 @@
+{
+  "name": "node-mangafox",
+  "version": "0.0.10",
+  "description": "This library provides an API for getting JSON Manga data from http://Mangafox.me",
+  "main": "dist/main.js",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "querystring": "^0.2.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "babel-register": "^6.22.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schme16/node-mangafox"
+  },
+  "keywords": [
+    "manga",
+    "mangaFox",
+    "mangafox",
+    "manga",
+    "fox",
+    "api",
+    "doujin",
+    "tools",
+    "anime"
+  ],
+  "author": {
+    "name": "Shane Gadsby"
+  },
+  "license": "GPL",
+  "readme": "node-mangafox\r\n=============\r\n\r\nProvides a set of tools for getting semantic data from MangaFox\r\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/schme16/node-mangafox/issues"
+  },
+  "_id": "node-mangafox@0.0.10",
+  "dist": {
+    "shasum": "d955043dec65164e7fbba2cfceb1633af1e0b9d7"
+  },
+  "_from": "node-mangafox@",
+  "_resolved": "https://registry.npmjs.org/node-mangafox/-/node-mangafox-0.0.10.tgz"
+}
