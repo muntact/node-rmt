@@ -82,12 +82,24 @@ rmt.getImages = (manga, ch) => {
     }));
 };
 
+// get image urls.
+rmt.getImageUrls = (manga, ch) => {
+  // view-source:http://www.readmanga.today/yamada-kun-to-7-nin-no-majo/40/all-pages
+
+  // ... get the urls:
+  // Change the wrapper function to not be an each caller?
+  const eachFunction = (list) => (index, element) => {
+     const b = $(element);
+     list[index] = b.attr('src');
+  };
+  return getSelectedListFromUrl(`${RMT}/${manga}/${ch}/all-pages`, undefined, '.content-list img', eachFunction);
+};
+
 //Gets the number of available chapters
 rmt.getChapters = (manga) => {
   // HOF wrapper for what to do when each is called on the result of the cheerio DOM selector.
   const eachFunction = (list) => (index, element) => {
-	   const b = $(element);
-     console.log(b);
+     const b = $(element);
 		 list[b.attr('href').replace(RMT, '').replace(manga, '')] = b.attr('href');
 	};
   return getSelectedListFromUrl(`${RMT}/${manga}`, undefined, '.chp_lst li a', eachFunction);

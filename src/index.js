@@ -2,12 +2,12 @@ require('babel-core/register')({
   presets: ['es2015'],
 });
 
-require('./main');
+require('./server');
 
-module.exports = {
-  main: require('./main'),
-  service: require('./service')
-};
+// module.exports = {
+//   main: require('./main'),
+//   service: require('./service')
+// };
 
 // service tests:
 // var service = require('./service');
@@ -20,12 +20,14 @@ module.exports = {
 // var callback = console.log;
 
 // getDetails - doesn't work.
+// X
 // rmt.getDetails('onepunch-man').then(callback); // returns a huge index page.
 
 // getManga - calls CB with list.
 // rmt.getManga(callback); // returns a huge index page.
 
 // getPages - calls CB with list.
+// X
 // rmt.getPages('onepunch-man', 0).then(callback); // returns 19.
 
 // getImages
