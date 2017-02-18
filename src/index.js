@@ -14,10 +14,10 @@ module.exports = {
 // service.get('http://rmt.me/manga', console.log);
 
 // rmt exposed API tests:
-var rmt = require('./main').default;
-console.log(Object.keys(rmt));
+// var rmt = require('./main').default;
+// console.log(Object.keys(rmt));
 // var callback = () => {};
-var callback = console.log;
+// var callback = console.log;
 
 // getDetails - doesn't work.
 // rmt.getDetails('onepunch-man').then(callback); // returns a huge index page.
@@ -28,16 +28,14 @@ var callback = console.log;
 // getPages - calls CB with list.
 // rmt.getPages('onepunch-man', 0).then(callback); // returns 19.
 
-
 // getImages
 // rmt.getImages('onepunch-man', 0);
 
 //getChapters
 // rmt.getChapters('onepunch-man').then(callback);
 
-// TODO: upto here.
 //getPopular
-// rmt.getPopular(callback);
+// rmt.getPopular().then(callback);
 
 // //getLatest
-// rmt.getLatest(callback);
+// rmt.getLatest().then(callback);

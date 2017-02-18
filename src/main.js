@@ -94,14 +94,26 @@ rmt.getChapters = (manga) => {
 };
 
 //get the list of currently popular manga
-rmt.getPopular = (callback = () => {}) =>
-	getSelectedListFromUrl(RMT, '#popular li div.nowrap a')
-		.then(callback);
+
+rmt.getPopular = () => {
+  // HOF wrapper for what to do when each is called on the result of the cheerio DOM selector.
+  const eachFunction = (list) => (index, element) => {
+     const b = $(element);
+     list[b.attr('href').replace(RMT, '')] = b.text();
+	};
+  return getSelectedListFromUrl(`${RMT}/hot-manga`, undefined, '.content-list h2 a', eachFunction);
+};
 
 //get the list of latest manga
-rmt.getLatest = (callback = () => {}) =>
-	getSelectedListFromUrl(RMT, '#new li div.nowrap a')
-		.then(callback);
+// could probably augment this to return the chapters as well.
+rmt.getLatest = () => {
+  // HOF wrapper for what to do when each is called on the result of the cheerio DOM selector.
+  const eachFunction = (list) => (index, element) => {
+     const b = $(element);
+     list[b.attr('href').replace(RMT, '')] = b.text();
+	};
+  return getSelectedListFromUrl(`${RMT}/latest-releases`, undefined, '.content-list dt a', eachFunction);
+};
 
 //makes all titles conform to the title conventions
 rmt.fixTitle = (title) => {
