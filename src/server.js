@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import http from 'http';
-import { chapters, details, imageUrls, latest, pages, popular } from './router';
+import { chapters, details, imageUrls, latest, pages, popular, mangaList } from './router';
 
 
 const app = express();
@@ -20,8 +20,9 @@ app.route('/imageUrls/:manga').get(imageUrls);
 app.route('/latest').get(latest);
 app.route('/pages/:manga').get(pages);
 app.route('/popular').get(popular);
+app.route('/mangaList').get(mangaList);
 
 
 http.createServer(app).listen(3040, () => {
-  console.log('manga interception server started'); //eslint-disable-line
+	console.log('manga interception server started'); //eslint-disable-line
 });
